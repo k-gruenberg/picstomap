@@ -26,7 +26,7 @@ ToDo
 ![Los Angeles Map](map-examples/los-angeles.png "Los Angeles Map")
 4 days in Paris:  
 ![Paris Map](map-examples/paris.png "Paris Map")
-4 day in Manhattan:  
+4 days in Manhattan:  
 ![Manhattan Map](map-examples/manhattan.png "Manhattan Map")
 
 ## User Interface
