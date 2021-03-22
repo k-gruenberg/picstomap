@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="outerVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="640.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.Controller">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="openMenuItem" mnemonicParsing="false" onAction="#chooseAction" text="Open…">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="O" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                            </accelerator></MenuItem>
+                        <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#saveAction" text="Save...">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="S" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                            </accelerator></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="quitMenuItem" mnemonicParsing="false" onAction="#menuQuitAction" text="Quit">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="Q" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                            </accelerator></MenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuAboutAction" text="About PicsToMap" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <BorderPane>
+            <top>
+                <AnchorPane prefHeight="47.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label text="Folder: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                        <TextField fx:id="folderTextField" disable="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="10.0" />
+                        <Button fx:id="chooseButton" ellipsisString="" maxWidth="70.5" minWidth="70.5" mnemonicParsing="false" onAction="#chooseAction" prefWidth="70.5" text="Choose..." textOverrun="CLIP" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                    </children>
+                </AnchorPane>
+            </top>
+            <center>
+                <AnchorPane BorderPane.alignment="CENTER">
+                    <children>
+                        <ListView fx:id="fileList" prefWidth="200.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <Pane fx:id="imagePane" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <Button fx:id="saveButton" ellipsisString="" maxWidth="55.5" minWidth="55.5" mnemonicParsing="false" onAction="#saveAction" prefWidth="55.5" text="Save..." textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                        <Button fx:id="generateMapButton" disable="true" ellipsisString="" maxWidth="96.0" minWidth="96.0" mnemonicParsing="false" onAction="#generateMapAction" prefWidth="96.0" text="Generate Map" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="75.0" />
+                        <Label fx:id="progressLabel" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="180.0">
+                            <font>
+                                <Font name="Courier" size="11.0" />
+                            </font></Label>
+                    </children>
+                </AnchorPane>
+            </center>
+            <bottom>
+                <TabPane maxHeight="170.0" minHeight="170.0" prefHeight="170.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                    <tabs>
+                        <Tab closable="false" text="Visual Settings">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <GridPane AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="NEVER" maxWidth="266.0" minWidth="266.0" prefWidth="266.0" />
+                                                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="354.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="Grayscale Map Background:" />
+                                                <Label text="Margin Size in %:" GridPane.rowIndex="1" />
+                                                <Label text="Custom Colors (hex format, comma-separated):" GridPane.rowIndex="2" />
+                                                <TextField fx:id="marginSizeTextField" promptText="20" text="20" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="customColorsTextField" promptText="(leave empty to use the 12 default colors)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <HBox GridPane.columnIndex="1">
+                                                    <children>
+                                                        <CheckBox fx:id="grayscaleCheckbox" mnemonicParsing="false" selected="true">
+                                                            <padding>
+                                                                <Insets left="6.0" top="6.0" />
+                                                            </padding>
+                                                        </CheckBox>
+                                                        <Slider fx:id="grayscaleSlider" prefWidth="10000.0">
+                                                            <padding>
+                                                                <Insets left="10.0" top="7.0" />
+                                                            </padding>
+                                                        </Slider>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab closable="false" text="Filters">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <GridPane AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="NEVER" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" />
+                                                <ColumnConstraints hgrow="NEVER" maxWidth="244.0" minWidth="244.0" prefWidth="244.0" />
+                                                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="351.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="Ignore Pictures taken before:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label text="Ignore Pictures taken after:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="Ignore &quot;outliers&quot;; max. standard deviations:" GridPane.columnIndex="1" />
+                                                <CheckBox fx:id="ignoreOutliersCheckbox" mnemonicParsing="false" selected="true" />
+                                                <CheckBox fx:id="ignoreBeforeCheckbox" mnemonicParsing="false" GridPane.rowIndex="1" />
+                                                <CheckBox fx:id="ignoreAfterCheckbox" mnemonicParsing="false" GridPane.rowIndex="2" />
+                                                <Label text="Ignore Files whose name matches:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <CheckBox fx:id="ignoreRegexCheckbox" mnemonicParsing="false" GridPane.rowIndex="3" />
+                                                <TextField fx:id="maxDeviationsTextField" promptText="5" text="5" GridPane.columnIndex="2" />
+                                                <TextField fx:id="regexTextField" promptText="(Regex)" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <DatePicker fx:id="beforeDatePicker" />
+                                                        <TextField fx:id="beforeHourTextField" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" promptText="00" text="00" />
+                                                        <Label text=":" />
+                                                        <TextField fx:id="beforeMinuteTextField" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" promptText="00" text="00" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                    <children>
+                                                        <DatePicker fx:id="afterDatePicker" />
+                                                        <TextField fx:id="afterHourTextField" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" promptText="23" text="23" />
+                                                        <Label text=":" />
+                                                        <TextField fx:id="afterMinuteTextField" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" promptText="59" text="59" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab closable="false" text="OpenStreetMap Settings">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <GridPane AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="NEVER" maxWidth="134.0" minWidth="134.0" prefWidth="134.0" />
+                                                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="486.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="Tile Server URL:" />
+                                                <Label text="Change Zoom Level:" GridPane.rowIndex="2" />
+                                                <Label text="Max. Tile Downloads:" GridPane.rowIndex="3" />
+                                                <TextField fx:id="changeZoomLevelTextField" promptText="(strongly discouraged; 0 = the recommended zoom level, e.g. -1 or +1)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="User Agent:" GridPane.rowIndex="1" />
+                                                <TextField fx:id="userAgentTextField" promptText="(leave empty to use default; might however be necessary, depending on Tile Server)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="tileServerURLComboBox" editable="true" prefWidth="10000.0" promptText="https://a.tile.openstreetmap.de/${z}/${x}/${y}.png" GridPane.columnIndex="1" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                    <children>
+                                                        <TextField fx:id="maxTileDownloadsTextField" prefWidth="10000.0" promptText="500" text="500" />
+                                                        <Button fx:id="clearTileCacheButton" ellipsisString="" maxWidth="107.5" minWidth="107.5" mnemonicParsing="false" onAction="#clearTileCacheAction" prefWidth="107.5" text="Clear Tile Cache" textOverrun="CLIP">
+                                                            <HBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </HBox.margin>
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab closable="false" text="Extra: Rename Tool">
+                            <content>
+                                <AnchorPane fx:id="renameToolAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <Label text="Rename all pictures in the specified folder with EXIF data to:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                        <TextField fx:id="renameTextField" layoutX="24.0" layoutY="36.0" text="{TIMESTAMP_UNIX}-----[DAY_OF_MONTH]-{MONTH_SHORT}-{YEAR}-----[HOUR]-[MINUTE]-[SECOND]-----{FILE_NAME}" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+                                            <font>
+                                                <Font size="11.0" />
+                                            </font>
+                                        </TextField>
+                                        <Button fx:id="renameUndoButton" ellipsisString="" maxWidth="63.0" minWidth="63.0" mnemonicParsing="false" onAction="#renameUndoAction" prefWidth="63.0" text="Rename" textOverrun="CLIP" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="69.0" />
+                                        <ProgressBar fx:id="renameProgressBar" progress="0.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="72.0" />
+                                        <Label fx:id="renameProgressLabel" ellipsisString="" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" text="–––%" textOverrun="CLIP" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="74.0" />
+                                        <ChoiceBox fx:id="renameChoiceBox" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="69.0" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab closable="false" text="Extra: Slideshow Tool">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <Label text="Select" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                                        <TextField fx:id="slideshowToolTextField" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="100" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="10.0" />
+                                        <Label text="photos (such that they are as geographically diverse as possible)" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="15.0" />
+                                        <CheckBox fx:id="takenBetweenSlideshowCheckBox" mnemonicParsing="false" text="taken between" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="47.0" />
+                                        <CheckBox fx:id="takenWithinSlideshowCheckBox" mnemonicParsing="false" text="taken within" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="75.0" />
+                                        <Label text="and copy them into a new separate folder." AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="103.0" />
+                                        <Button fx:id="slideshowGoButton" mnemonicParsing="false" onAction="#slideshowGoAction" text="Go!" AnchorPane.leftAnchor="246.0" AnchorPane.topAnchor="98.0" />
+                                        <ProgressBar fx:id="slideshowProgressBar" progress="0.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="103.0" />
+                                        <DatePicker fx:id="slideshowDatePicker1" maxWidth="187.5" minWidth="187.5" prefWidth="187.5" AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="40.0" />
+                                        <Label text="and" AnchorPane.leftAnchor="322.0" AnchorPane.topAnchor="47.0" />
+                                        <DatePicker fx:id="slideshowDatePicker2" maxWidth="187.5" minWidth="187.5" prefWidth="187.5" AnchorPane.leftAnchor="353.0" AnchorPane.topAnchor="40.0" />
+                                        <TextField fx:id="slideshowRadiusTextField" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="50" AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="69.0" />
+                                        <Label text="km of" AnchorPane.leftAnchor="184.0" AnchorPane.topAnchor="75.0" />
+                                        <TextField fx:id="slideshowGeolocationTextField" promptText="(enter city/location name here)" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="69.0" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </bottom>
+        </BorderPane>
+    </children>
+</VBox>
