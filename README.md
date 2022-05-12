@@ -22,6 +22,8 @@ ToDo
 * Comes with an additional 'Rename Tool' that automatically renames all of your holiday images using their EXIF data in a format that you specify. 
 
 ## Examples
+16-day road trip through Argentina:
+![Argentina Map](map-examples/argentina.png "Argentina Map")
 5 days in Los Angeles:  
 ![Los Angeles Map](map-examples/los-angeles.png "Los Angeles Map")
 4 days in Paris:  
